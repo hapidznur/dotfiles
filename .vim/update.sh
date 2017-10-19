@@ -35,7 +35,7 @@ repos=(
   tpope/vim-unimpaired
   w0rp/ale
   wellle/targets.vim
-
+  flazz/vim-colorschemes
 )
 
 set -e

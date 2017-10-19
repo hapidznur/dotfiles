@@ -348,7 +348,8 @@ endfunction
 " Make sure colored syntax mode is on, and make it Just Work with 256-color terminals.
 set background=dark
 let g:rehash256 = 1 " Something to do with Molokai?
-colorscheme molokai
+"colorscheme molokai
+colorscheme Monokai
 if !has('gui_running')
   if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
