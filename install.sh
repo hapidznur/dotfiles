@@ -4,6 +4,13 @@
 
 set -e
 
+if ! [-d ~/Document/Data ]; then
+  mkdir ~/Data·
+fi
+if ! [ -d $HOME/.oh-my-zsh]; then
+  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+fi
+
 basedir=$HOME/.dotfiles
 bindir=$HOME/Data/bin
 repourl=https://github.com/hapidznur/dotfiles.git
@@ -63,6 +70,7 @@ symlink $basedir/.vim/gvimrc $HOME/.gvimrc
 
 echo "Adding executables to ~/bin/..."
 mkdir -p $bindir
+
 for path in bin/* ; do
   symlink $basedir/$path $bindir/$(basename $path)
 done
