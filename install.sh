@@ -6,7 +6,7 @@ set -e
 
 basedir=$HOME/.dotfiles
 bindir=$HOME/Data/bin
-repourl=git://github.com/hapidznur/dotfiles.git
+repourl=https://github.com/hapidznur/dotfiles.git
 
 function symlink() {
   src=$1
