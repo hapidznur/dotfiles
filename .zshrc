@@ -16,7 +16,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 # zshlocal somekind alias and .local execute
-if [-e ~/.zshlocal]; then
+if [ -e ~/.zshlocal ]; then
   . ~/.zshlocal
 fi
 
