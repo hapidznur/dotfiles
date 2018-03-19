@@ -4,7 +4,11 @@ alias vi=vix
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 alias docker="sudo /usr/bin/docker"
-alias bijii="cd ~/Data/Mounted/Project/Bijii/pjerp"
+alias bijii="cd ~/Data/Mounted/Projects/Bijii/"
+alias projects="cd ~/Data/Mounted/Projects/"
 alias blog="cd ~/Data/Mounted/Blog/hapidznur.github.io"
 alias note="cd ~/Data/Mounted/Catatan"
-alias pjerp="cd ~/Data/Mounted/Project/Bijii/pjerp/erpnext/erpnext"
+alias pjerp="cd ~/Data/Mounted/Projects/Bijii/pjerp/apps/erpnext"
+alias freelance="cd ~/Data/Mounted/Projects/FreeStuff"
+alias py=python
+export PATH=$PATH:/opt/gitkraken

@@ -109,3 +109,5 @@ export PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]\[\033[01
 if [ -e ~/.bashlocal ]; then
     . ~/.bashlocal
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

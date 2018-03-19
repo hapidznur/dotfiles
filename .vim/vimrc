@@ -7,16 +7,52 @@
 " hapidznur's .vimrc file
 "
 
-" --------
-" KEY MAPS
-" --------
-nmap \e :NERDTreeToggle<CR>
+set nocompatible              " required
+filetype off                  " required
+set hidden
+set showtabline=0
 
-" Useful macros I use the most
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" ------------
-" ABBREVATIONS
-" ------------
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+"-------------------=== Code/Project navigation ===-------------
+Plugin 'scrooloose/nerdtree'                " Project and file navigation
+Plugin 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
+Plugin 'tpope/vim-fugitive'                 " for git purpose
+Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
+Plugin 'MattesGroeger/vim-bookmarks'        " Bookmarks
+Plugin 'junegunn/fzf.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'godlygeek/tabular'                  "markdown
+Plugin 'plasticboy/vim-markdown'            "markdown
+Plugin 'rlue/vim-getting-things-down'       "TODO
+"-------------------=== Other ===-------------------------------
+Plugin 'vimwiki/vimwiki'                    " Personal Wiki
+Plugin 'jreybert/vimagit'                   " Git Operations
+Plugin 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
+Plugin 'chriskempson/base16-vim'            " Base 16 colors
+Plugin 'sickill/vim-monokai'
+"-------------------=== Snippets support ===--------------------
+
+"-------------------=== Languages support ===-------------------
+Plugin 'scrooloose/nerdcommenter'           " Easy code documentation
+Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
+
+"-------------------=== Python  ===-----------------------------
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype on
+filetype plugin on
+filetype plugin indent on
 
 " ---------
 " Option
@@ -83,8 +119,6 @@ set notitle                 " Don't set the title of the Vim window
 set wildmenu                " Show possible completions on command line
 set wildmode=list:longest,full " List all options and complete
 set wildignore=*.class,*.o,*~,*.pyc,.git,node_modules  " Ignore certain files in tab-completion
-" Essential for filetype plugins.
-filetype plugin indent on
 
 " ----------------------------
 " Custom Commands and Functions
@@ -95,15 +129,6 @@ command! W w
 " ----------------
 " Plugin Setttings
 " ----------------
-" Use Pathogen for plugin management. See update.sh in this directory.
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-
-" For any plugins that use this, make their keymappings use comma
-let mapleader = ","
-let maplocalleader = ","
-
 " FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
@@ -122,30 +147,27 @@ let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
 
 " NERDTree PLugin
+nmap \e :NERDTreeToggle<cr>
 let g:NERDTreeWinSize=17
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
+let NERDTreeWinSize=40
+autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
 
+" tasklist
+map \t :TaskList<CR>
+let g:tlTokenList = ['todo']
 " vim-airline
 let g:airline_powerline_fonts=1
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 "  Colors
 " ----------------
 set background=dark
-"let g:rehash256 = 1
+let g:rehash256 = 1
 set t_Co=256  " vim-sublime-monokai now only support 256 colours in terminal.
-"set termguicolors
 syntax on
 colorscheme monokai 
-
-highlight link markdownH1 PreProc
-highlight link markdownH2 PreProc
-highlight link markdownLink Character
-highlight link markdownBold String
-highlight link markdownItalic Statement
-highlight link markdownCode Delimiter
-highlight link markdownCodeBlock Delimiter
-highlight link markdownListMarker Todo
 
 " ----------------
 "  File Type Commands
@@ -228,4 +250,9 @@ endif
 " Some plugin seems to search for something at startup, so this fixes that.
 silent! nohlsearch
 
-" vim:set tw=100:
+" --------
+" KEY MAPS
+" --------
+" Moving tabs
+noremap <A-j> gT
+noremap <A-k> gt
