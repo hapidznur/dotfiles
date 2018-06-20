@@ -33,9 +33,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'godlygeek/tabular'                  "markdown
 Plugin 'plasticboy/vim-markdown'            "markdown
-Plugin 'rlue/vim-getting-things-down'       "TODO
+"Plugin 'rlue/vim-getting-things-down'       "TODO
 "-------------------=== Other ===-------------------------------
 Plugin 'vimwiki/vimwiki'                    " Personal Wiki
+Plugin 'tbabej/taskwiki'                    " Taskwiki
 Plugin 'jreybert/vimagit'                   " Git Operations
 Plugin 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 Plugin 'chriskempson/base16-vim'            " Base 16 colors
@@ -104,15 +105,22 @@ set scroll=4                " Number of lines to scroll with ^U/^D
 set scrolloff=15            " Keep cursor away from this many chars top/bot
 set sessionoptions-=options " Don't save runtimepath in Vim session (see tpope/vim-pathogen docs)
 set shiftround              " Shift to certain columns, not just n spaces
-set shiftwidth=2            " Number of spaces to shift for autoindent or >,<
 set shortmess+=A            " Don't bother me when a swapfile exists
 set showbreak=              " Show for lines that have been wrapped, like Emacs
 set showmatch               " Hilight matching braces/parens/etc.
 set sidescrolloff=3         " Keep cursor away from this many chars left/right
 set smartcase               " Lets you search for ALL CAPS
-set softtabstop=2           " Spaces 'feel' like tabs
 set suffixes+=.pyc          " Ignore these files when tab-completing
-set tabstop=2               " The One True Tab
+
+" Setting fot PHP and other Only
+"set tabstop=2               " The One True Tab
+"set shiftwidth=2            " Number of spaces to shift for autoindent or >,<
+
+" Setting fot Python Only
+set shiftwidth=4
+set tabstop=4
+"set softtabstop=4           " Spaces 'feel' like tabs
+
 set textwidth=100           " 100 is the new 80
 set thesaurus+=~/.vim/mthes10/mthesaur.txt
 set notitle                 " Don't set the title of the Vim window
@@ -154,8 +162,9 @@ let NERDTreeWinSize=40
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
 
 " tasklist
-map \t :TaskList<CR>
-let g:tlTokenList = ['todo']
+"map \t :TaskList<CR>
+"let g:tlTokenList = ['todo']
+
 " vim-airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -167,7 +176,7 @@ set background=dark
 let g:rehash256 = 1
 set t_Co=256  " vim-sublime-monokai now only support 256 colours in terminal.
 syntax on
-colorscheme monokai 
+colorscheme monokai
 
 " ----------------
 "  File Type Commands
