@@ -1,16 +1,14 @@
 "           _
-"    __   _(_)_ __ ___  _ __ ____
-"    \ \ / / | '_ ` _ \| `__/  __|
-"  _  \ V /| | | | | | | |  | (__
-" (_)  \_/ |_|_| |_| |_|_|  \____|
+"    __   _(X)_ __ ___  _ __ ____
+"    \ \ / / | '_ ` _ \|X`__/  __|
+"  _  \ V /| | | |X| | | |  | (X_
+" (_)  \X/ |_|_| |_| |_|_|  \____|
 "
 " hapidznur's .vimrc file
-"
+" https://www.github.com/hapidznur/dotfiles
 
 set nocompatible              " required
 filetype off                  " required
-set hidden
-set showtabline=0
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,82 +21,54 @@ Plugin 'gmarik/Vundle.vim'
 "-------------------=== Code/Project navigation ===-------------
 Plugin 'scrooloose/nerdtree'                " Project and file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
-Plugin 'tpope/vim-fugitive'                 " for git purpose
 Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-Plugin 'fisadev/FixedTaskList.vim'          " Pending tasks list
-Plugin 'MattesGroeger/vim-bookmarks'        " Bookmarks
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tikhomirov/vim-glsl'
 Plugin 'godlygeek/tabular'                  "markdown
 Plugin 'plasticboy/vim-markdown'            "markdown
-"Plugin 'rlue/vim-getting-things-down'       "TODO
 "-------------------=== Other ===-------------------------------
-Plugin 'vimwiki/vimwiki'                    " Personal Wiki
-Plugin 'tbabej/taskwiki'                    " Taskwiki
-Plugin 'jreybert/vimagit'                   " Git Operations
+Plugin 'tpope/vim-fugitive'                   " Git Operation:s
 Plugin 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
-Plugin 'chriskempson/base16-vim'            " Base 16 colors
 Plugin 'sickill/vim-monokai'
 "-------------------=== Snippets support ===--------------------
-
+Plugin 'cakebaker/scss-syntax.vim'          " Sassy CSS
 "-------------------=== Languages support ===-------------------
 Plugin 'scrooloose/nerdcommenter'           " Easy code documentation
 Plugin 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
 
 "-------------------=== Python  ===-----------------------------
-
+Plugin 'tell-k/vim-autopep8'                " autopep8
+Plugin 'Chiel92/vim-autoformat'             " auto format for python
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype on
 filetype plugin on
-filetype plugin indent on
+filetype indent on
 
-" ---------
-" Option
-" ---------
-set autoindent              " Carry over indenting from previous line
-set autoread                " Don't bother me hen a file changes
-set autowrite               " Write on :next/:prev/^Z
+" -----------
+" Konfigurasi
+" -----------
+set autoindent
+set autoread
+set autowrite
 set backspace=indent,eol,start
-                            " Allow backspace beyond insertion point
-set cindent                 " Automatic program indenting
-set cinkeys-=0#             " Comments don't fiddle with indenting
-set cino=                   " See :h cinoptions-values
-set commentstring=\ \ #%s   " When folds are created, add them to this
-set copyindent              " Make autoindent use the same chars as prev line
-set directory-=.            " Don't store temp files in cwd
-set encoding=utf8           " UTF-8 by default
-set expandtab               " No tabs
-set fileformats=unix,dos,mac  " Prefer Unix
-set fillchars=vert:\ ,stl:\ ,stlnc:\ ,fold:-,diff:┄
-                            " Unicode chars for diffs/folds, and rely on
-                            " Colors for window borders
-silent! set foldmethod=marker " Use braces by default
-set formatoptions=tcqn1     " t - autowrap normal text
-                            " c - autowrap comments
-                            " q - gq formats comments
-                            " n - autowrap lists
-                            " 1 - break _before_ single-letter words
-                            " 2 - use indenting from 2nd line of para
-set hidden                  " Don't prompt to save hidden windows until exit
-set history=200             " How many lines of history to save
-set hlsearch                " Hilight searching
-set ignorecase              " Case insensitive
-set incsearch               " Search as you type
-set infercase               " Completion recognizes capitalization
-set laststatus=2            " Always show the status bar
-set linebreak               " Break long lines by word, not char
-set list                    " Show whitespace as special chars - see listchars
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:· " Unicode characters for various things
-set matchtime=2             " Tenths of second to hilight matching paren
-set modelines=5             " How many lines of head & tail to look for ml's
-silent! set mouse=nvc       " Use the mouse, but not in insert mode
-set nobackup                " No backups left after done editing
-set nonumber                " No line numbers to start
-set visualbell t_vb=        " No flashing or beeping at all
-set nowritebackup           " No backups made while editing
+set encoding=utf8
+set expandtab
+set formatoptions=tcqn1 
+" t - autowrap normal text
+" c - autowrap comments
+" q - gq formats comments
+" n - autowrap lists
+" 1 - break _before_ single-letter words
+" 2 - use indenting from 2nd line of para
+set hlsearch
+set linebreak
+set nobackup
+set nonumber
+set notitle
+set nowritebackup
 set printoptions=paper:letter " US paper
 set ruler                   " Show row/col and percentage
 set scroll=4                " Number of lines to scroll with ^U/^D
@@ -109,34 +79,23 @@ set shortmess+=A            " Don't bother me when a swapfile exists
 set showbreak=              " Show for lines that have been wrapped, like Emacs
 set showmatch               " Hilight matching braces/parens/etc.
 set sidescrolloff=3         " Keep cursor away from this many chars left/right
-set smartcase               " Lets you search for ALL CAPS
-set suffixes+=.pyc          " Ignore these files when tab-completing
-
-" Setting fot PHP and other Only
-"set tabstop=2               " The One True Tab
-"set shiftwidth=2            " Number of spaces to shift for autoindent or >,<
-
-" Setting fot Python Only
+set smartcase       
 set shiftwidth=4
+set softtabstop=4
+set suffixes+=.pyc
 set tabstop=4
-"set softtabstop=4           " Spaces 'feel' like tabs
+set visualbell t_vb=
+set wildmenu
+set wildmode=list:longest,full
+set wildignore=".class,~,o,*.pyc,.git,node_modules
 
-set textwidth=100           " 100 is the new 80
-set thesaurus+=~/.vim/mthes10/mthesaur.txt
-set notitle                 " Don't set the title of the Vim window
-set wildmenu                " Show possible completions on command line
-set wildmode=list:longest,full " List all options and complete
-set wildignore=*.class,*.o,*~,*.pyc,.git,node_modules  " Ignore certain files in tab-completion
+" use mouse not in insert mode
+silent! set mouse =nvc
 
-" ----------------------------
-" Custom Commands and Functions
-" -----------------------------
-command! Q q
-command! W w
+" -------------
+" Plugin Konfig
+" -------------
 
-" ----------------
-" Plugin Setttings
-" ----------------
 " FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
@@ -148,120 +107,74 @@ nmap <Leader>a :Ag<CR>
 " Tell ack.vim to use ag (the Silver Searcher) instead
 let g:ackprg = 'ag --vimgrep'
 
-" GitGutter styling to use · instead of +/-
-let g:gitgutter_sign_added = '∙'
-let g:gitgutter_sign_modified = '∙'
-let g:gitgutter_sign_removed = '∙'
-let g:gitgutter_sign_modified_removed = '∙'
-
 " NERDTree PLugin
 nmap \e :NERDTreeToggle<cr>
 let g:NERDTreeWinSize=17
-let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
+" Ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
 let NERDTreeWinSize=40
-autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
+" Load NERDTree only if vim is run without arguments
+autocmd VimEnter * if !argc() | NERDTree | endif 
 
-" tasklist
-"map \t :TaskList<CR>
-"let g:tlTokenList = ['todo']
 
-" vim-airline
+" vim-airline buat warna-warni
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-"  Colors
-" ----------------
+
+" Theme Konfig 
 set background=dark
 let g:rehash256 = 1
 set t_Co=256  " vim-sublime-monokai now only support 256 colours in terminal.
 syntax on
 colorscheme monokai
 
-" ----------------
-"  File Type Commands
-" ---------------
-" Reset all autocommands
+" GitGutter styling to use · instead of +/-
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+
+" --------
+" Key Maps
+" --------
+command! Q q
+command! W w
+" ctrl + s As Save
+noremap <silent> <C-S> 		:update<CR>
+vnoremap <silent> <C-S><C-C>	:update<CR>
+inoremap <silent> <C-S><C-O>	:update<CR>
+" disable indent bawaan dari copy paste
+noremap <F8> :setl noai  nocin nosi inde=<CR>
+
+" -----------
+" Auto Konfig
+" -----------
 augroup vimrc
-autocmd!
-
-au BufNewFile,BufRead *.as      setlocal ft=actionscript nolist ts=4 sw=4 noet
-au BufNewFile,BufRead *.bb      setf xdefaults
-au BufNewFile,BufRead *.cson    set ft=coffee
-au BufNewFile,BufRead *.csv     setf csv
-au BufNewFile,BufRead *.flr     setf actionscript
-au BufNewFile,BufRead *.glsl    setf glsl
-au BufNewFile,BufRead *.gyp     set ft=python
-au BufNewFile,BufRead *.html    setlocal nocindent smartindent
-au BufNewFile,BufRead *.i7x     setf inform7
-au BufNewFile,BufRead *.ini     setf conf
-au BufNewFile,BufRead *.input   setf gnuplot
-au BufNewFile,BufRead *.json    set ft=json tw=0
-au BufNewFile,BufRead *.less    setf less
-au BufNewFile,BufRead *.less    setlocal nocindent smartindent
-au BufNewFile,BufRead *.md      setlocal ft=markdown nolist spell
-au BufNewFile,BufRead *.md,*.markdown setlocal foldlevel=999 tw=0 nocin
-au BufNewFile,BufRead *.ni      setlocal ft=inform nolist ts=2 sw=2 noet
-au BufNewFile,BufRead *.plist   setf xml
-au BufNewFile,BufRead *.rb      setlocal noai
-au BufNewFile,BufRead *.rhtm    setf eruby
-au BufNewFile,BufRead *.rhtml   setf eruby
-au BufNewFile,BufRead *.rxml    setf ruby
-au BufNewFile,BufRead *.sass    setf sass
-au BufNewFile,BufRead *.sch     setf scheme
-au BufNewFile,BufRead *.scm     setf scheme
-au BufNewFile,BufRead *.scss    setf scss
-au BufNewFile,BufRead *.ss      setf scheme
-au BufNewFile,BufRead *.t       setf perl
-au BufNewFile,BufRead *.ts      set foldlevel=999
-au BufNewFile,BufRead *.ttml    setf xml
-au BufNewFile,BufRead *.vert,*.frag set ft=glsl
-au BufNewFile,BufRead *.xhtml   setf xml
-au BufNewFile,BufRead *.xml     setlocal ft=xml  ts=2 sw=2 et
-au BufNewFile,BufRead *.xps     setf perl
-au BufNewFile,BufRead *.xsl     setlocal ft=xslt ts=2 sw=2 et
-au BufNewFile,BufRead *.yaml    setlocal ft=yaml
-au BufNewFile,BufRead *.yml     setlocal ft=yaml
-au BufNewFile,BufRead *.zone    setlocal nolist ts=4 sw=4 noet
-au BufNewFile,BufRead *.zsh     setf zsh
-au BufNewFile,BufRead *templates/*.html setf htmldjango
-au BufNewFile,BufRead .git/config setlocal ft=gitconfig nolist ts=4 sw=4 noet
-au BufNewFile,BufRead .gitconfig* setlocal ft=gitconfig nolist ts=4 sw=4 noet
-au BufNewFile,BufRead .vimlocal,.gvimlocal setf vim
-au BufNewFile,BufRead .zshlocal setf zsh
-au BufNewFile,BufRead /etc/apache*/* setf apache
-au BufNewFile,BufRead /tmp/crontab* setf crontab
-au BufNewFile,BufRead /tmp/mutt-* setlocal spell nolist nohlsearch
-au BufNewFile,BufRead /tmp/sql* setf sql
-au BufNewFile,BufRead /usr/share/zsh/*/functions/* setf zsh
-au BufNewFile,BufRead COMMIT_EDITMSG setlocal nolist nonumber
-au BufNewFile,BufRead Makefile setlocal nolist
-au BufNewFile,BufRead pf.conf setf pf
-au BufNewFile,BufRead pf.conf.* setf pf
-
-au FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=999
-au FileType inform7 setlocal nolist tw=0 ts=4 sw=4 noet foldlevel=999
-au Filetype gitcommit setlocal tw=80
-au FileType gitcommit setlocal nolist ts=4 sts=4 sw=4 noet
-au FileType make setlocal nolist ts=4 sts=4 sw=4 noet
-
+    autocmd!
+    au BufNewFile,BufRead *.csv     setf csv
+    au BufNewFile,BufRead *.ini     setf conf
+    au BufNewFile,BufRead *.json    set ft=json tw=0
+    au BufNewFile,BufRead *.sass    setf sass
+    au BufNewFile,BufRead *.scss    setf scss
+    au BufNewFile,BufRead *.xml     setlocal ft=xml  ts=2 sw=2 et
+    au BufNewFile,BufRead *.zshrc   setf zsh number
+    au BufNewFile,BufRead *.yml,*.yaml setlocal ft=yaml ts=2 sw=2 sts=2
+    au BufNewFile,BufRead *.py setlocal ts=4 sw=4 sts=4
+    au BufNewFile,BufRead *.blade.php,*.php,*.htm,*.html, setlocal ts=2 sw=2 sts=2
+    au FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=999
+    au Filetype gitcommit setlocal tw=80
+    au FileType gitcommit setlocal nolist ts=4 sts=4 sw=4 noet
+    au FileType make setlocal nolist ts=4 sts=4 sw=4 noet
 augroup END
-" ----------------
-"  Custom VIM file
-" ----------------
 
-" Now load specifics to this host
+
 " ----------------
+" Local Vim Konfig
+" ---------------
 if filereadable(expand("~/.vimlocal"))
-  source ~/.vimlocal
+	source ~/.vimlocal
 endif
 
-" Some plugin seems to search for something at startup, so this fixes that.
-silent! nohlsearch
 
-" --------
-" KEY MAPS
-" --------
-" Moving tabs
-noremap <A-j> gT
-noremap <A-k> gt
