@@ -23,6 +23,7 @@ Plugin 'scrooloose/nerdtree'                " Project and file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
 Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
+Plugin 'mileszs/ack'                        " SliverSearch
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'                  "markdown
@@ -91,7 +92,7 @@ set wildignore=".class,~,o,*.pyc,.git,node_modules
 
 " use mouse not in insert mode
 silent! set mouse =nvc
-
+silent! nohlsearch
 " -------------
 " Plugin Konfig
 " -------------
@@ -136,18 +137,6 @@ let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
 
-" --------
-" Key Maps
-" --------
-command! Q q
-command! W w
-" ctrl + s As Save
-noremap <silent> <C-S> 		:update<CR>
-vnoremap <silent> <C-S><C-C>	:update<CR>
-inoremap <silent> <C-S><C-O>	:update<CR>
-" disable indent bawaan dari copy paste
-noremap <F8> :setl noai  nocin nosi inde=<CR>
-
 " -----------
 " Auto Konfig
 " -----------
@@ -168,7 +157,18 @@ augroup vimrc
     au FileType gitcommit setlocal nolist ts=4 sts=4 sw=4 noet
     au FileType make setlocal nolist ts=4 sts=4 sw=4 noet
 augroup END
-
+"
+" --------
+" Key Maps
+" --------
+command! Q q
+command! W w
+" ctrl + s As Save
+noremap <silent> <C-S> 		    :update<CR>
+vnoremap <silent> <C-S> <C-C>	:update<CR>
+inoremap <silent> <C-S> <C-O>   	:update<CR>
+" disable indent bawaan dari copy paste
+noremap <F8> :setl noai  nocin nosi inde=<CR>
 
 " ----------------
 " Local Vim Konfig
