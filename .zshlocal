@@ -11,8 +11,14 @@ alias note="cd ~/Data/Mounted/Catatan"
 alias pjerp="cd ~/Data/Mounted/Projects/Bijii/pjerp/apps/erpnext"
 alias freelance="cd ~/Data/Mounted/Projects/FreeStuff"
 alias py=python
+alias status="git status"
+alias add="git add"
+alias commit="life --commit"
 export PATH=$PATH:/opt/gitkraken
-
+export PATH=$PATH:/opt/activator
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="~/.pyenv/bin/:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 #export MANPATH="$(brew --prefix)/share/man:$MANPATH"
 #export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
