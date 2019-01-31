@@ -2,40 +2,59 @@
 #
 # Usage: ./update.sh [pattern]
 #
+#  alampros/vim-styled-jsx
+#  altercation/vim-colors-solarized
+#  ap/vim-css-color
+#  docunext/closetag.vim
+#  ervandew/supertab
+#  haya14busa/incsearch.vim
+#  itchyny/lightline.vim
+#  junegunn/fzf.vim
+#  junegunn/goyo.vim
+#  mileszs/ack.vim
+#  nathanaelkane/vim-indent-guides
+#  qpkorr/vim-bufkill
+#  scrooloose/nerdtree
+#  sheerun/vim-polyglot
+#  statico/vim-inform7
+#  tomasr/molokai
+#  tpope/vim-commentary
+#  tpope/vim-endwise
+#  tpope/vim-eunuch
+#  tpope/vim-fugitive
+#  tpope/vim-pathogen
+#  tpope/vim-repeat
+#  tpope/vim-rhubarb
+#  tpope/vim-sleuth
+#  tpope/vim-surround
+#  tpope/vim-unimpaired
+#  w0rp/ale
+#  wellle/targets.vim
+#  flazz/vim-colorschemes
+#
+#
 # Specify [pattern] to update only repos that match the pattern.
 
 repos=(
-
-  airblade/vim-gitgutter
-  alampros/vim-styled-jsx
-  altercation/vim-colors-solarized
-  ap/vim-css-color
-  docunext/closetag.vim
-  ervandew/supertab
-  haya14busa/incsearch.vim
-  itchyny/lightline.vim
-  junegunn/fzf.vim
-  junegunn/goyo.vim
-  mileszs/ack.vim
-  nathanaelkane/vim-indent-guides
-  qpkorr/vim-bufkill
-  scrooloose/nerdtree
-  sheerun/vim-polyglot
-  statico/vim-inform7
-  tomasr/molokai
-  tpope/vim-commentary
-  tpope/vim-endwise
-  tpope/vim-eunuch
-  tpope/vim-fugitive
-  tpope/vim-pathogen
-  tpope/vim-repeat
-  tpope/vim-rhubarb
-  tpope/vim-sleuth
-  tpope/vim-surround
-  tpope/vim-unimpaired
-  w0rp/ale
-  wellle/targets.vim
-  flazz/vim-colorschemes
+    gmarik/Vundle
+    scrooloose/nerdtree
+    Xuyuanp/nerdtree-git-plugin
+    vim-airline/vim-airline
+    vim-airline/vim-airline-themes
+    junegunn/fzf.vim
+    airblade/vim-gitgutter
+    godlygeek/tabular
+    plasticboy/vim-markdown
+    tpope/vim-fugitive
+    kien/rainbow_parentheses.vim
+    chriskempson/base16-vim
+    sickill/vim-monokai
+    cakebaker/scss-syntax.vim
+    tikhomirov/vim-glsl
+    scrooloose/nerdcommenter
+    mitsuhiko/vim-sparkup
+    tell-k/vim-autopep8
+    Chiel92/vim-autoformat
 )
 
 set -e
