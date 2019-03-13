@@ -4,21 +4,36 @@
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
 #alias docker="sudo /usr/bin/docker"
-alias bijii="cd ~/Data/Mounted/Projects/Bijii/"
+alias bijii="cd ~/Projects/"
 alias projects="cd ~/Data/Mounted/Projects/"
-alias blog="cd ~/Data/Mounted/Blog/hapidznur.github.io"
-alias note="cd ~/Data/Mounted/Catatan"
-alias pjerp="cd ~/Data/Mounted/Projects/Bijii/pjerp/apps/erpnext"
-alias freelance="cd ~/Data/Mounted/Projects/FreeStuff"
+alias blog="cd ~/Projects/hapidznur.github.io"
+alias note="cd ~/Projects/Dokumentasi"
+alias pjerp="cd ~/Projects/PatriotJaya"
+alias erp="cd ~/Projects/ERP/MIS"
+alias freelance="cd ~/Projects/FreeStuff"
 alias py=python
 alias status="git status"
 alias add="git add"
 alias commit="life --commit"
+alias database="docker-compose -f ~/Projects/Spaceship/compose/docker-compose-database.yml -p database" # {start|up|stop|build}{name_service}
 export PATH=$PATH:/opt/gitkraken
 export PATH=$PATH:/opt/activator
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export PATH="~/.pyenv/bin/:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-#export MANPATH="$(brew --prefix)/share/man:$MANPATH"
-#export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+# MIS ERPNEXT
+alias mis="bench --site mis"
+export PATH="/home/langitangin/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+export KEYTIMEOUT=1
+

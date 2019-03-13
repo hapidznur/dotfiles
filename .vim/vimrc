@@ -9,6 +9,7 @@
 
 set nocompatible              " required
 filetype off                  " required
+set hidden
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,15 +24,20 @@ Plugin 'scrooloose/nerdtree'                " Project and file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
 Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
-Plugin 'mileszs/ack'                        " SliverSearch
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'                  "markdown
 Plugin 'plasticboy/vim-markdown'            "markdown
+Plugin 'tpope/vim-vinegar'                  " file and directory navigation
+Plugin 'tpope/vim-eunuch'                   " file and directory management
+Plugin 'ctrlpvim/ctrlp.vim'                 " find file with Ctrl + P
+Plugin 'skwp/greplace.vim'                  " find word in all folder
+Plugin 'mileszs/ack.vim'                    " Ack
 "-------------------=== Other ===-------------------------------
 Plugin 'tpope/vim-fugitive'                   " Git Operation:s
 Plugin 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 Plugin 'sickill/vim-monokai'
+Plugin 'itchyny/calendar.vim'               " Calendar Coy Cek uripmu ketoto
 "-------------------=== Snippets support ===--------------------
 Plugin 'cakebaker/scss-syntax.vim'          " Sassy CSS
 "-------------------=== Languages support ===-------------------
@@ -55,8 +61,16 @@ set autoindent
 set autoread
 set autowrite
 set backspace=indent,eol,start
+set cindent
+set cinkeys-=0#
+set cino=
+set commentstring=\ \ #%s
+set copyindent
+set directory-=.
 set encoding=utf8
 set expandtab
+set fileformats=unix,mac,dos
+set fillchars=vert:\ ,stl:\ ,stlnc:\ ,fold:-,diff:┄
 set formatoptions=tcqn1 
 " t - autowrap normal text
 " c - autowrap comments
@@ -64,6 +78,7 @@ set formatoptions=tcqn1
 " n - autowrap lists
 " 1 - break _before_ single-letter words
 " 2 - use indenting from 2nd line of para
+set hidden
 set hlsearch
 set linebreak
 set nobackup
@@ -91,6 +106,7 @@ set wildmode=list:longest,full
 set wildignore=".class,~,o,*.pyc,.git,node_modules
 
 " use mouse not in insert mode
+silent! set foldmethod=marker
 silent! set mouse =nvc
 silent! nohlsearch
 " -------------
@@ -116,13 +132,17 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
 let NERDTreeWinSize=40
 " Load NERDTree only if vim is run without arguments
 autocmd VimEnter * if !argc() | NERDTree | endif 
-
+nmap <Leader>f :NERDTreeFind<cr>
 
 " vim-airline buat warna-warni
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+" Calendar connect ot Google
+let g:calendar_frame = 'default'
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 
 " Theme Konfig 
 set background=dark
@@ -163,13 +183,25 @@ augroup END
 " --------
 command! Q q
 command! W w
+
 " ctrl + s As Save
-noremap <silent> <C-S> 		    :update<CR>
-vnoremap <silent> <C-S> <C-C>	:update<CR>
-inoremap <silent> <C-S> <C-O>   	:update<CR>
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
 " disable indent bawaan dari copy paste
 noremap <F8> :setl noai  nocin nosi inde=<CR>
 
+" set buffer shortcut 
+nmap ,f :bn<cr>
+nmap ,d :bp<cr>
+" disable hl
+nmap ,<space> :nohlsearch<cr>
+" window move
+nmap <C-h> <C-w><C-h>
+nmap <C-l> <C-w><C-l>
+nmap <C-k> <C-w><C-k>
+nmap <C-j> <C-w><C-j>
 " ----------------
 " Local Vim Konfig
 " ---------------
