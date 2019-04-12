@@ -35,13 +35,12 @@
 #
 # Specify [pattern] to update only repos that match the pattern.
 
-
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 repos=(
+    gmarik/Vundle
     scrooloose/nerdtree
     Xuyuanp/nerdtree-git-plugin
+    vim-airline/vim-airline
+    vim-airline/vim-airline-themes
     junegunn/fzf.vim
     airblade/vim-gitgutter
     godlygeek/tabular

@@ -22,12 +22,13 @@ Plug 'tpope/vim-eunuch'                   " file and directory management
 Plug 'ctrlpvim/ctrlp.vim'                 " find file with Ctrl + P
 Plug 'skwp/greplace.vim'                  " find word in all folder
 Plug 'mileszs/ack.vim'                    " Ack
+Plug 'tpope/vim-fugitive'                 " Git Operation:s
 Plug 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 Plug 'tpope/vim-fugitive'                 " Git Operation:s
+Plug 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 "-------------------=== Other ===-------------------------------
 Plug 'itchyny/lightline.vim'              "
 Plug 'mengelbrecht/lightline-bufferline'  "
-Plug 'itchyny/landscape.vim'              " Theme
 Plug 'itchyny/calendar.vim'               " Calendar Coy Cek uripmu ketoto
 "-------------------=== Snippets support ===--------------------
 Plug 'cakebaker/scss-syntax.vim'          " Sassy CSS
@@ -112,9 +113,10 @@ let g:ackprg = 'ag --vimgrep'
 
 " NERDTree PLugin
 nmap \e :NERDTreeToggle<cr>
+let g:NERDTreeWinSize=12
 " Ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
-let NERDTreeWinSize=28
+let NERDTreeWinSize=22
 " Load NERDTree only if vim is run without arguments
 autocmd VimEnter * if !argc() | NERDTree | endif 
 nmap <Leader>f :NERDTreeFind<cr>
@@ -124,7 +126,7 @@ set laststatus=2
 set showtabline=2
 set guioptions-=e  " Don't use GUI tabline
 let g:lightline = {
-\   'colorscheme': 'landscape',
+\   'colorscheme': 'wombat',
 \   'active': {
 \     'left':[[ 'mode', 'paste' ],
 \             [ 'fugitive', 'readonly', 'filename', 'modified' ]],
@@ -143,7 +145,7 @@ let g:lightline#bufferline#filename_modifier= ":."
 let g:lightline#bufferline#more_buffers = "..."
 let g:lightline#bufferline#modified = " +"
 let g:lightline#bufferline#read_only = " -"
-let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#show_number = 0
 let g:lightline.separator = {
 \   'left': '', 'right': ''
