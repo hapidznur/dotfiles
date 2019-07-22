@@ -1,5 +1,6 @@
 
 # for fedora 
+alias off="poweroff"
 #alias vim=vimx
 #walias vi=vix
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
@@ -13,9 +14,12 @@ alias erp="cd ~/Projects/ERP/MIS"
 alias freelance="cd ~/Projects/FreeStuff"
 alias py=python
 alias status="git status"
+
 alias add="git add"
 alias commit="life --commit"
+# Docker
 alias database="docker-compose -f ~/Projects/Spaceship/compose/docker-compose-database.yml -p database" # {start|up|stop|build}{name_service}
+alias container="docker container"
 export PATH=$PATH:/opt/gitkraken
 export PATH=$PATH:/opt/activator
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"

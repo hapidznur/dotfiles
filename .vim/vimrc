@@ -12,31 +12,37 @@ call plug#begin('~/.vim/plugged')
 
 "-------------------=== Code/Project navigation ===-------------
 Plug 'scrooloose/nerdtree'                " Project and file navigation
-Plug 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-gitgutter'
+"Plug 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
+Plug 'tpope/vim-vinegar'                " Open Folder with -
+Plug 'qpkorr/vim-bufkill'               " Not close buffer if split
+Plug 'ervandew/supertab'                " Autocomplete with tab
+"Plug 'junegunn/fzf.vim'
+"Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'                  " markdown
-Plug 'plasticboy/vim-markdown'            " markdown
-Plug 'tpope/vim-vinegar'                  " file and directory navigation
-Plug 'tpope/vim-eunuch'                   " file and directory management
+"Plug 'plasticboy/vim-markdown'            " markdown
+"Plug 'tpope/vim-vinegar'                  " file and directory navigation
+"Plug 'tpope/vim-eunuch'                   " file and directory management
 Plug 'ctrlpvim/ctrlp.vim'                 " find file with Ctrl + P
-Plug 'skwp/greplace.vim'                  " find word in all folder
-Plug 'mileszs/ack.vim'                    " Ack
-Plug 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
+"Plug 'mileszs/ack.vim'                    " Ack
+"Plug 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 Plug 'tpope/vim-fugitive'                 " Git Operation:s
 "-------------------=== Other ===-------------------------------
 Plug 'itchyny/lightline.vim'              "
 Plug 'mengelbrecht/lightline-bufferline'  "
 Plug 'itchyny/landscape.vim'              " Theme
 Plug 'itchyny/calendar.vim'               " Calendar Coy Cek uripmu ketoto
+Plug 'wakatime/vim-wakatime'
 "-------------------=== Snippets support ===--------------------
-Plug 'cakebaker/scss-syntax.vim'          " Sassy CSS
+"iPlug 'cakebaker/scss-syntax.vim'          " Sassy CSS
 "-------------------=== Languages support ===-------------------
-Plug 'scrooloose/nerdcommenter'           " Easy code documentation
-Plug 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
+"Plug 'scrooloose/nerdcommenter'           " Easy code documentation
+"Plug 'mitsuhiko/vim-sparkup'              " Sparkup(XML/jinja/htlm-django/etc.) support
 "-------------------=== Python  ===-----------------------------
-Plug 'tell-k/vim-autopep8'                " autopep8
+"Plug 'tell-k/vim-autopep8'                " autopep8
 Plug 'Chiel92/vim-autoformat'             " auto format for python
+"-------------------=== JavaScript  ===-----------------------------
+Plug 'posva/vim-vue'                      " syntax for vuejs
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
@@ -109,6 +115,10 @@ nmap <Leader>a :Ag<CR>
 
 " Tell ack.vim to use ag (the Silver Searcher) instead
 let g:ackprg = 'ag --vimgrep'
+
+" Vim-buffkill
+"close split using \ + c
+nmap <Leader>c :BD<cr>
 
 " NERDTree PLugin
 nmap \e :NERDTreeToggle<cr>
@@ -193,12 +203,19 @@ nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 let g:calendar_frame = 'default'
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+let g:calendar_diary=$HOME.'/.vim/diary'
+let g:calendar_event_start_time=1
 
 " GitGutter styling to use · instead of +/-
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
+
+" Session Manager
+let g:session_dir = "~/.vim_session"
+exec 'nnoremap <Leader>ss :mks! ' . g:session_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>sr :so ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
 " -----------
 " Auto Konfig
@@ -215,11 +232,14 @@ augroup vimrc
     au BufNewFile,BufRead *.yml,*.yaml setlocal ft=yaml ts=2 sw=2 sts=2
     au BufNewFile,BufRead *.py setlocal ts=4 sw=4 sts=4
     au BufNewFile,BufRead *.blade.php,*.php,*.htm,*.html, setlocal ts=2 sw=2 sts=2
+    au BufNewFile,BufRead *.vue,*.js     setlocal ts=2 sw=2 sts=2
     au FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=999
     au Filetype gitcommit setlocal tw=80
     au FileType gitcommit setlocal nolist ts=4 sts=4 sw=4 noet
     au FileType make setlocal nolist ts=4 sts=4 sw=4 noet
+    au FileType vue syntax sync fromstart
 augroup END
+
 "
 " --------
 " Key Maps

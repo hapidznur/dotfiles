@@ -1,5 +1,5 @@
-st.alpha: 240
-st.font : Monospace:pixelsize=12;
+#st.alpha: 240
+#st.font : Monospace:pixelsize=12;
 *URxvt*font: xft:Monospace:size=12
 *URxvt*boldFont: -misc-fixed-medium-r-*-*-15-*-*-*-*-*-*-*
 XTerm*foreground: #ffffff
