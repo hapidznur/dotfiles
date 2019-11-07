@@ -111,3 +111,4 @@ if [ -e ~/.bashlocal ]; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/opt/mssql-tools/bin"

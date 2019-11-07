@@ -20,9 +20,14 @@ alias commit="life --commit"
 # Docker
 alias database="docker-compose -f ~/Projects/Spaceship/compose/docker-compose-database.yml -p database" # {start|up|stop|build}{name_service}
 alias container="docker container"
+alias inspect="docker inspect"
+
 export PATH=$PATH:/opt/gitkraken
 export PATH=$PATH:/opt/activator
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+#alias "git gr"= 'git log --all --decorate --oneline --graph'
+
 # MIS ERPNEXT
 
 alias mis="bench --site mis"

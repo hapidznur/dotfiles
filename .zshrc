@@ -16,5 +16,10 @@ export PATH
 if [ -e ~/.zshlocal ]; then
   . ~/.zshlocal
 fi
+# disable ctrl + s
+stty -ixon
 
+# FZF search utilities
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$PATH:/opt/mssql-tools/bin"
+

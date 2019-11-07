@@ -19,7 +19,7 @@ Plug 'ervandew/supertab'                " Autocomplete with tab
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'                  " markdown
-"Plug 'plasticboy/vim-markdown'            " markdown
+Plug 'plasticboy/vim-markdown'            " markdown
 "Plug 'tpope/vim-vinegar'                  " file and directory navigation
 "Plug 'tpope/vim-eunuch'                   " file and directory management
 Plug 'ctrlpvim/ctrlp.vim'                 " find file with Ctrl + P
@@ -154,6 +154,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Tell ack.vim to use ag (the Silver Searcher) instead
 let g:ackprg = 'ag --vimgrep'
 
+" Vim Markdown
+let g:vim_markdown_folding_disabled = 1 " folding disabled hardcore
+let g:vim_markdown_folding_style_pythonic = 1 " pytonic folding
 " Vim-buffkill
 "close split using \ + c
 nmap <Leader>c :BD<cr>
