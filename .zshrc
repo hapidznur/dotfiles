@@ -1,11 +1,11 @@
-export ZSH=/home/hapidznur/.oh-my-zsh
-ZSH_THEME="odin"
+export ZSH=/home/kurokuro/.oh-my-zsh
+ZSH_THEME="simple"
 CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 ENABLE_CORRECTION="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
-  git history-filter $plugins)
+  git history-filter dnf $plugins)
 export TERM=xterm-256color
 source $ZSH/oh-my-zsh.sh
 # ssh

@@ -1,12 +1,8 @@
-# 💾 Ian's Dotfiles and Vim config
-
-These are my dotfiles. There are many like them, but these are mine.
-
-This started around 2001 or so when I used lots of different machines and environments. Now I mostly use macOS and Linux but still keep the environment in sync.
+# Copy and modified from Ian's Dotfiles and Vim config
 
 ### Installation
 
-1. `curl -sL https://raw.githubusercontent.com/statico/dotfiles/master/install.sh | bash`
+1. `curl -sL https://raw.githubusercontent.com/hapidznur/dotfiles/master/install.sh | bash`
 1. `chsh` or otherwise set your shell to use [Zsh](http://www.zsh.org/)
 1. Restart your shell
 

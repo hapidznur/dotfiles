@@ -5,13 +5,6 @@ alias off="poweroff"
 #walias vi=vix
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH
-alias bijii="cd ~/Projects/"
-alias projects="cd ~/Data/Mounted/Projects/"
-alias blog="cd ~/Projects/hapidznur.github.io"
-alias note="cd ~/Projects/Dokumentasi"
-alias pjerp="cd ~/Projects/PatriotJaya"
-alias erp="cd ~/Projects/ERP/MIS"
-alias freelance="cd ~/Projects/FreeStuff"
 alias py=python
 alias status="git status"
 
