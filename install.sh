@@ -5,14 +5,14 @@
 set -e
 
 if ! [-d ~/Document/Data ]; then
-  mkdir ~/Data·
+  mkdir ~/Stuffs/Playground/Dotfiles
 fi
 if ! [ -d $HOME/.oh-my-zsh]; then
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
 
 basedir=$HOME/.dotfiles
-bindir=$HOME/Data/bin
+bindir=$HOME/Stuffs/Playground/Dotfiles/bin
 repourl=https://github.com/hapidznur/dotfiles.git
 
 function symlink() {
