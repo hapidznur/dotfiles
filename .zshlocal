@@ -26,12 +26,12 @@ PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 alias mis="bench --site mis"
 export PATH="~/.pyenv/bin:$PATH"
 
-export HISTORY_FILTER_EXCLUDE=("_KEY" "Bearer" "tmux")
+#export HISTORY_FILTER_EXCLUDE=("_KEY" "Bearer" "tmux")
 
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
+#setopt HIST_EXPIRE_DUPS_FIRST
+#setopt HIST_FIND_NO_DUPS
+#setopt HIST_IGNORE_DUPS
+#setopt HIST_IGNORE_ALL_DUPS
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 #export MANPATH="$(brew --prefix)/share/man:$MANPATH"

@@ -5,7 +5,7 @@ DISABLE_AUTO_UPDATE="true"
 ENABLE_CORRECTION="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
-  git history-filter dnf $plugins)
+  git dnf $plugins)
 export TERM=xterm-256color
 source $ZSH/oh-my-zsh.sh
 # ssh
